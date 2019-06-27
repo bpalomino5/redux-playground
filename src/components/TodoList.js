@@ -11,10 +11,6 @@ const TodoList = ({ todos }) => (
   </ul>
 );
 
-const mapStateToProps = state => {
-  const { visibilityFilter } = state;
-  const todos = getTodosByVisibilityFilter(state, visibilityFilter);
-  return { todos };
-};
+const mapStateToProps = state => ({ todos: getTodosByVisibilityFilter(state) });
 
 export default connect(mapStateToProps)(TodoList);
