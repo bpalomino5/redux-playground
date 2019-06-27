@@ -1,14 +1,9 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actionTypes";
+import { handleActions } from "redux-actions";
+import { addTodo, toggleTodo } from "../actions";
 
-const initialState = {
-  allIds: [],
-  byIds: {}
-};
-
-export default (state = initialState, action) => {
-  console.log(state, action);
-  switch (action.type) {
-    case ADD_TODO: {
+const reducer = handleActions(
+  {
+    [addTodo]: (state, action) => {
       const { id, content } = action.payload;
       return {
         ...state,
@@ -21,8 +16,8 @@ export default (state = initialState, action) => {
           }
         }
       };
-    }
-    case TOGGLE_TODO: {
+    },
+    [toggleTodo]: (state, action) => {
       const { id } = action.payload;
       return {
         ...state,
@@ -35,7 +30,11 @@ export default (state = initialState, action) => {
         }
       };
     }
-    default:
-      return state;
+  },
+  {
+    allIds: [],
+    byIds: {}
   }
-}
+);
+
+export default reducer;
