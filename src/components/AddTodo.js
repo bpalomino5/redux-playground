@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { addTodo } from "../redux/actions";
+import useTodo from "../hooks/use-todo";
 
-const AddTodo = ({ addTodo }) => {
+const AddTodo = () => {
+  const { addTodo } = useTodo();
   const [input, setInput] = useState("");
 
   const updateInput = ({ target: { value } }) => {
@@ -24,7 +24,4 @@ const AddTodo = ({ addTodo }) => {
   );
 };
 
-export default connect(
-  null,
-  { addTodo }
-)(AddTodo);
+export default AddTodo;

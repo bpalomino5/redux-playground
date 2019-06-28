@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
-import { connect } from "react-redux";
-import { setFilter } from "../redux/actions";
+// import { connect } from "react-redux";
+// import { setFilter } from "../redux/actions";
 import { VISIBILITY_FILTERS } from "../constants";
 
 const VisibilityFilters = ({ activeFilter, setFilter }) => (
@@ -24,11 +24,8 @@ const VisibilityFilters = ({ activeFilter, setFilter }) => (
   </div>
 );
 
-const mapStateToProps = state => {
-  return { activeFilter: state.visibilityFilter };
-};
+// const mapStateToProps = state => {
+//   return { activeFilter: state.visibilityFilter };
+// };
 
-export default connect(
-  mapStateToProps,
-  { setFilter }
-)(VisibilityFilters);
+export default VisibilityFilters;
