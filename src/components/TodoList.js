@@ -1,10 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import Todo from "./Todo";
-import { getTodosByVisibilityFilter } from "../redux/selectors";
+import useTodo from '../hooks/use-todo';
 
 const TodoList = () => {
-  const todos = useSelector(getTodosByVisibilityFilter);
+  const { todos } = useTodo();
   return (
     <ul className="todo-list">
       {todos && todos.length
